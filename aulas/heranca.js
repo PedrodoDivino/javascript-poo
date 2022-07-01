@@ -1,28 +1,38 @@
-class mamiferos {
-    constructor(especies, name ,idade){
-        this.especies = especies;
-        this.name = name;
-        this.idade = idade;
-        this.mamiferos = true;
+class Spaceship {
+    constructor(name, maxCrew, maxRecomendedVelocity){
+this.name= name
+this.maxCrew= maxCrew
+this.maxRecomendedVelocity= maxRecomendedVelocity
+this.currentVelocity = 0
     }
-    incremetaIdade (){
-        this.idade ++
+    speedUp(aceleration){
+        this.currentVelocity+= aceleration
+        if (this.currentVelocity > maxRecomendedVelocity){
+            console.log('velocidade maxima ultrapassda! Diminua!')
+        }
     }
 }
+class BattleSpaceship extends Spaceship{
 
-class Lion extends mamiferos{
-
-    eatZebra(animais){
-
-return animais.filter(animal => animal.especies !== 'zebra')
-    }
-    
+stop(){
+    this.currentVelocity=0
+    console.log('recolhendo armas e parando nave de batalha')
 }
+}
+class DiscoverySpaceship extends Spaceship{
+stop(){
+    this.currentVelocity =0
+    console.log('recolhendo equipamentos de amostras e parando nave de descoberta')
+    }
+}
+let darwin = new DiscoverySpaceship('darwin', 10, 200)
 
-const zeca = new mamiferos('zebra', 'zeca', 6);
-const irineu = new mamiferos('gnu','irineu', 5);
-const angus = new mamiferos('cavalo', ' angus',3);
-const thor = new Lion('leao','thor',7);
-const animais = ['zeca','irineu','angus'];
+let thor = new BattleSpaceship ('thor', 8, 250)
 
-console.log(thor.eatZebra(animais))
+darwin.speedUp(300)
+
+thor.speedUp(300)
+
+darwin.stop()
+thor.stop()
+console.log(darwin, thor)
