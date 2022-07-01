@@ -1,56 +1,56 @@
-class spaceship {
-    constructor(nome, crew){
-        this.nome = nome;
-        this.crew = crew;
-        this.hitched = false;
-        this.doors = false;
+class Spaceship {
+    constructor(name, crewQuantity) {
+        this.name = name
+        this.crewQuantity = crewQuantity
+        this.isHitched = false
+        this.entraceDoorsOpen = false
     }
-
-    hitch(){
-        this.hitched = true
-        this.doors = true
+    hitch() {
+        this.isHitched = true
+        this.entraceDoorsOpen = true
     }
-}
-
-let hitched = []
-
-function registerShip() {
-    let nome_nave = prompt('Informe o nome da nave')
-    let tripulante_nave = prompt('Informe a quantidade de tripulantes')
-    
-    let spaceshipC = new spaceship(nome_nave, tripulante_nave)
-    return spaceshipC
-}
-
-function printShip(element) {
-    let list = '';
-    element.forEach(function(element, index) {
-        list += (index + 1) + '- ' + element.nome + " (" + element.crew + " Tripulantes)\n";
-    })
-    alert(list)
 }
 
 function showMenu() {
-    let option
-    while(option != 3){
-        option = prompt('O que deseja fazer?\n1- Engatar nave\n2- Imprimir naves\n3- Sair do programa')
-        
-        switch (option) {
-            case '1':
-                let rn = registerShip()
-                rn.hitch()
-                hitched.push(rn)
-                break;
-            case '2':
-                printShip(hitched)
-                break;
-            case '3':
-                break;
-            default:
-                alert('Esta opção não existe.')
-                break;
-        }
+    let chosenOption
+    while(chosenOption != "1" && chosenOption != "2" && chosenOption != "3") {
+        chosenOption = prompt(  "O que deseja fazer?\n" +
+                                "1- Engatar nave\n" +
+                                "2- Imprimir naves\n" +
+                                "3- Sair do programa")
     }
+    return chosenOption
 }
 
-showMenu()
+function createSpaceship() {
+    let spaceshipName = prompt("Informe o nome da nave")
+    let crewQuantity = prompt("Informe a quantidade de tripulantes")
+    let spaceship = new Spaceship(spaceshipName, crewQuantity)
+    return spaceship
+}
+
+function printSpaceshipList(spaceships) {
+    let spaceshipList = ""
+    spaceships.forEach((spaceship, index) => {
+        spaceshipList +=    (index + 1) + "- " + spaceship.name +
+                            " (" + spaceship.crewQuantity + " tripulantes)\n"
+    })
+    alert(spaceshipList)
+}
+
+let hitchedSpaceships = []
+let chosenOption
+
+while(chosenOption != "3") {
+    chosenOption = showMenu()
+    switch(chosenOption) {
+        case "1":
+            let spaceshipToAdd = createSpaceship()
+            spaceshipToAdd.hitch()
+            hitchedSpaceships.push(spaceshipToAdd)
+            break
+        case "2":
+            printSpaceshipList(hitchedSpaceships)
+            break
+    }
+}
