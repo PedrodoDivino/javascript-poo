@@ -1,0 +1,20 @@
+{
+  "name": "javascript-poo",
+  "version": "1.0.0",
+  "description": "Aulas Alura de javascript: programando a Orientação a objetos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PedrodoDivino/javascript-poo.git"
+  },
+  "author": "Pedro Henrique do Divino Sandrini",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/PedrodoDivino/javascript-poo/issues"
+  },
+  "homepage": "https://github.com/PedrodoDivino/javascript-poo#readme"
+}
