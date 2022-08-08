@@ -4,9 +4,19 @@ class Client {
 
     name;
     cpf;
+}
+
+class checkingAccount {
     agency;
     balance;
+drawOut(value){
+ if (this.balance >= value) {
+    this.balance -= value;
+ } 
 }
+
+}
+
 
 client1 = new Client();
 
@@ -17,19 +27,18 @@ const client2 = new Client();
 
 client1.Cpf = 1233454545;
 
- client1.Agency =  1001;
-
- client1.Balance =  0;
 
 const client2name = 'Alice';
 
-const cliient2Cpf = 98764321;
+const client2Cpf = 98764321;
 
-const client2Agency =  1001;
+const checkingAccountRicardo = new checkingAccount();
 
-const client2Balance =  0;
+checkingAccountRicardo.balance = 100;
+checkingAccountRicardo.agency = 1001;
 
 
-console.log(client1);
+checkingAccountRicardo.drawOut(200)
 
+console.log(checkingAccountRicardo.balance)
 
