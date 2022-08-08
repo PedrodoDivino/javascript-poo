@@ -1,44 +1,34 @@
-
-
 class Client {
-
-    name;
-    cpf;
+  name;
+  cpf;
 }
 
 class checkingAccount {
-    agency;
-    balance;
-drawOut(value){
- if (this.balance >= value) {
-    this.balance -= value;
- } 
+  agency;
+  #balance = 0;
+  drawOut(value) {
+    if (this._balance >= value) {
+      this._balance -= value;
+    }
+  }
+  deposit(value) {
+    if (this.balance >= 0) {
+      this._balance += value;
+    }
+  }
 }
-
-}
-
 
 client1 = new Client();
 
-const client2 = new Client();
-
-
- client1.name = 'Ricardo';
-
+client1.name = "Ricardo";
 client1.Cpf = 1233454545;
 
 
-const client2name = 'Alice';
-
-const client2Cpf = 98764321;
-
 const checkingAccountRicardo = new checkingAccount();
 
-checkingAccountRicardo.balance = 100;
+checkingAccountRicardo._balance = 100;
 checkingAccountRicardo.agency = 1001;
 
+checkingAccountRicardo.deposit(10);
 
-checkingAccountRicardo.drawOut(200)
-
-console.log(checkingAccountRicardo.balance)
-
+console.log(checkingAccountRicardo);
