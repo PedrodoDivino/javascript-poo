@@ -5,20 +5,19 @@ const client1 = new Client();
 client1.name = "Ricardo";
 client1.Cpf = 1233454545;
 
-const client2 = new Client();
-client2.name = "Maria";
-client2.Cpf = 98765211;
-
-
 const checkingAccountRicardo = new CheckingAccount();
 checkingAccountRicardo.agency = 1001;
 checkingAccountRicardo.client = client1;
 checkingAccountRicardo.deposit(500);
 
 const acount2 = new CheckingAccount()
+acount2.client = new Client();
+acount2.client.name = 'Alice'
+acount2.client.Cpf = 12334545
 acount2.agency = 102;
-acount2.client = client2;
+let value = 200;
+acount2.client = Client;
 
-checkingAccountRicardo.trasnfer(200, acount2);
+checkingAccountRicardo.trasnfer(value, acount2);
 
-console.log(client2);
+console.log('value',value,acount2);

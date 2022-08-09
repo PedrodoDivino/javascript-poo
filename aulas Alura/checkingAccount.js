@@ -14,7 +14,9 @@ export class CheckingAccount {
     }
   }
   trasnfer(value, acount) {
+    acount.city = 'Londrina';
     const valueDrawOut = this.drawOut(value);
     acount.deposit(valueDrawOut);
+
   }
 }
