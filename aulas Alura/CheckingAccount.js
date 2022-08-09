@@ -1,6 +1,8 @@
 export class CheckingAccount {
+  client;
   agency;
-  balance = 0;
+  _balance = 0;
+
   drawOut(value) {
     if (this._balance >= value) {
       this._balance -= value;
@@ -9,9 +11,9 @@ export class CheckingAccount {
   }
   deposit(value) {
     if (this.balance >= 0) {
-      this._balance += value;
-      return value;
+      return;
     }
+    this._balance += value;
   }
   trasnfer(value, acount) {
     const valueDrawOut = this.drawOut(value);
